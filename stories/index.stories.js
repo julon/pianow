@@ -23,7 +23,17 @@ storiesOf("HelloWorld", module)
   template: `
   <instant-search app-id="${appId}" api-key="${apiKey}">
     <search-index name="${index1}">
-      <search-bar v-model="test" :options="options"></search-bar>
+      <search-bar v-model="test" :options="options" :autocomplete="true">
+        <autocomplete-source index="bordeaux"></autocomplete-source>
+        <autocomplete-source>
+          <template slot-scope="props">
+            <div v-for="hit in props.hits">
+              ahaha {{ hit.name }}
+            </div>
+          </template>
+        </autocomplete-source>
+      </search-bar>
+      <search-results/>
     </search-index>
   </instant-search>`,
   data () {

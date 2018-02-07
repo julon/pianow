@@ -21,6 +21,7 @@ export default {
   provide() {
     this.helper = algoliasearchHelper(this.client, this.name, this.options);
     return {
+      mainIndex: this.name,
       helper: this.helper
     };
   },

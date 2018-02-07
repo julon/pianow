@@ -10,11 +10,13 @@
         :value="value"
         @input="updateValue($event.target.value)")
       input.button(type="submit" value="Search")
-
-      .hit(v-if="value.length > 0" v-for="hit in hits" v-html="hit._highlightResult.name.value")
+    .test(v-if="autocomplete" v-show="value.length > 0")
+      slot
+        autocomplete-source
 </template>
 
 <script>
+import algoliasearchHelper from "algoliasearch-helper";
 
 const events = [
   "change",
@@ -27,10 +29,24 @@ const events = [
 ];
 
 export default {
-  inject: ["helper"],
+  inject: ["client", "helper", "mainIndex"],
+  provide() {
+    this.searchBarHelper = this.autocomplete
+      ? // create a separate helper for independant triggering
+        algoliasearchHelper(this.client, this.mainIndex, this.options)
+      : // No autocomplete, filter parent index directly
+        this.helper;
+    return {
+      searchBarHelper: this.searchBarHelper
+    };
+  },
   props: {
     value: {
       type: String
+    },
+    autocomplete: {
+      type: Boolean,
+      default: false
     },
     placeholder: {
       type: String,
@@ -42,25 +58,23 @@ export default {
   },
   data() {
     return {
+      searchBarHelper: null,
       hits: []
     };
   },
+  created() {},
   methods: {
-    onSubmit () {
-      this.helper.search(this.value)
+    onSubmit() {
+      // trigger parent index search if no autocomplete mode
+      if (this.autocomplete) {
+        this.helper.setQuery(this.value).search();
+      }
     },
     updateValue(value) {
-      // TODO: validation support & type support
+      // trigger search
+      this.searchBarHelper.setQuery(value).search();
 
-      // trigger autocomplete search
-      // it doesn't change main index cache
-      this.helper
-        .setQuery(value)
-        .searchOnce(this.options, (error, content, state) => {
-          console.log(state)
-          this.hits = content.hits;
-        });
-
+      // update model
       this.$emit("input", value);
     }
   },
@@ -70,3 +84,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.test {
+  position: absolute;
+  background-color: white;
+}
+</style>
+
