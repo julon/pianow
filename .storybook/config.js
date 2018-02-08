@@ -4,6 +4,9 @@ import Vue from 'vue';
 // Import your custom components.
 import ModuleLibrary from '@/index';
 
+
+import './styles.css';
+
 // Install this library
 Vue.use(ModuleLibrary);
 

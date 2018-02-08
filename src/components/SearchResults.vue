@@ -54,19 +54,3 @@ export default {
 };
 </script>
 
-<style scoped>
-.search-results {
-  padding: 10px;
-}
-.search-results__list {
-  padding-left: 0;
-}
-.search-results__item {
-  list-style: none;
-}
-.active {
-  background-color: darkgreen;
-  color: white;
-  list-style: none;
-}
-</style>
