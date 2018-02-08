@@ -16,9 +16,14 @@ import pack from "./package.json";
 const projectName = "pianow";
 
 // compute globals from dependencies
-const globals = pack.dependencies && Object.assign({}, ...Object.keys(pack.dependencies).map((key) => ({
-  [key]: camelCase(key)
-})));
+const globals =
+  pack.dependencies &&
+  Object.assign(
+    {},
+    ...Object.keys(pack.dependencies).map(key => ({
+      [key]: camelCase(key)
+    }))
+  );
 
 const builds = {
   // (CommonJS). Used by bundlers e.g. Webpack & Browserify
@@ -54,7 +59,7 @@ function genConfig(name) {
   const opts = builds[name];
   const config = {
     input: opts.entry,
-    external: (id) => pack.dependencies && pack.dependencies[id], // exclude dependencies from build
+    external: id => pack.dependencies && pack.dependencies[id], // exclude dependencies from build
     plugins: [
       resolve({
         browser: true,

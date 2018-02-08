@@ -1,18 +1,13 @@
 <template lang="pug">
-  .InstantSearch
+  .instant-search
     slot
 </template>
 
 <script>
-import algoliasearch from 'algoliasearch'
+import algoliasearch from "algoliasearch";
 
 export default {
-  provide () {
-    this.algoliasearch = algoliasearch(this.appId, this.apiKey, this.options)
-    return {
-      client: this.algoliasearch
-    }
-  },
+  name: "InstantSearch",
   props: {
     appId: {
       type: String,
@@ -27,14 +22,10 @@ export default {
       default: null
     }
   },
-  data () {
+  provide() {
     return {
-      algoliasearch: null
-    }
-  },
-  destroyed () {
-    // close connections
-    // this.algoliasearch.destroy()
+      _client: algoliasearch(this.appId, this.apiKey, this.options)
+    };
   }
-}
+};
 </script>

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .SearchIndex
+  .search-index
     slot
 </template>
 
@@ -7,7 +7,8 @@
 import algoliasearchHelper from "algoliasearch-helper";
 
 export default {
-  inject: ["client"],
+  name: "SearchIndex",
+  inject: ["_client"],
   props: {
     name: {
       type: String,
@@ -18,15 +19,20 @@ export default {
       default: null
     }
   },
-  provide() {
-    this.helper = algoliasearchHelper(this.client, this.name, this.options);
+  data() {
     return {
-      mainIndex: this.name,
-      helper: this.helper
+      localHelper: algoliasearchHelper(this._client, this.name, this.options)
     };
   },
-  created () {
-    this.helper.search()
+  mounted() {
+    // trigger initial search
+    this.localHelper.search();
+  },
+  provide() {
+    return {
+      _index: this.name,
+      _helper: this.localHelper
+    };
   }
 };
 </script>
