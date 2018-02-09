@@ -35,7 +35,7 @@
     "build:umd:dev": "rollup -c --environment TARGET:umd-dev",
     "build:umd:prod": "rollup -c --environment TARGET:umd-prod",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "storybook:build": "build-storybook -c .storybook -o docs/dist/stories",
+    "storybook:build": "build-storybook -c .storybook -o docs",
     "precommit": "lint-staged",
     "cz": "git-cz",
     "commitmsg": "commitlint -e $GIT_PARAMS",
@@ -54,6 +54,8 @@
     "@semantic-release/git": "^2.0.1",
     "@semantic-release/github": "^3.0.1",
     "@semantic-release/npm": "^2.6.1",
+    "@storybook/addon-knobs": "^3.3.12",
+    "@storybook/addon-options": "^3.3.12",
     "@storybook/vue": "^3.3.3",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.1.2",
@@ -112,14 +114,12 @@
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",
-      "@semantic-release/npm",
       "@semantic-release/git",
       "@semantic-release/github"
     ],
-    "getLastRelease": "@semantic-release/npm",
+    "getLastRelease": "@semantic-release/github",
     "publish": [
       "@semantic-release/changelog",
-      "@semantic-release/npm",
       "@semantic-release/git",
       "@semantic-release/github"
     ]

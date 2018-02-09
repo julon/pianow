@@ -1,15 +1,24 @@
 import ModuleLibrary from "../index";
 
-test("Should register all components when installed", () => {
-  const component = jest.fn();
-  const Vue = { component };
+describe("Index.js", () => {
+  it("should register all components when installed", () => {
+    const component = jest.fn();
+    const Vue = { component };
 
-  ModuleLibrary.install(Vue);
+    ModuleLibrary.install(Vue);
 
-  // Test if a particular component was registered
-  expect(component).toBeCalledWith("hello-world", expect.any(Object));
+    // Test if a particular component was registered
+    expect(component).toBeCalledWith("instant-search", expect.any(Object));
+    expect(component).toBeCalledWith("search-index", expect.any(Object));
+    expect(component).toBeCalledWith("search-results", expect.any(Object));
+    expect(component).toBeCalledWith("search-box", expect.any(Object));
+    expect(component).toBeCalledWith(
+      "search-box-autocomplete",
+      expect.any(Object)
+    );
 
-  // Test how many times component got registered
-  const totalOfComponents = 1;
-  expect(component).toHaveBeenCalledTimes(totalOfComponents);
+    // Test how many times component got registered
+    const totalOfComponents = 5;
+    expect(component).toHaveBeenCalledTimes(totalOfComponents);
+  });
 });
