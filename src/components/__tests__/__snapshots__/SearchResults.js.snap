@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResults.vue should match the snapshot 1`] = `
+<div
+  class="search-results"
+>
+  <h2
+    class="search-results__title"
+  >
+    testIndex (0)
+  </h2>
+  <div
+    class="search-results__noresults"
+  >
+    No results found.
+  </div>
+  <!---->
+</div>
+`;

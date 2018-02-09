@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InstantSearch.vue should match the snapshot 1`] = `
+<div
+  class="instant-search"
+>
+  <h1>
+    You need to put a search-index element here :)
+  </h1>
+</div>
+`;

@@ -3,6 +3,9 @@ const path = require("path");
 module.exports = {
   rootDir: path.resolve(__dirname, "./"),
   moduleFileExtensions: ["js", "json", "vue"],
+  moduleNameMapper: {
+    "^vue$": "vue/dist/vue.common.js"
+  },
   transform: {
     ".*\\.js$": "<rootDir>/node_modules/babel-jest",
     ".*\\.vue$": "<rootDir>/node_modules/vue-jest"

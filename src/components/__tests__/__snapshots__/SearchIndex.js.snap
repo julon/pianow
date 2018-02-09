@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchIndex.vue should match the snapshot 1`] = `
+<div
+  class="search-index"
+>
+  <h1>
+    You can now put a search-results or/and a search-box
+  </h1>
+</div>
+`;

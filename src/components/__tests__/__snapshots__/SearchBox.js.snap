@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBox.vue should match the snapshot 1`] = `
+<div
+  class="search-box"
+  index="testIndex"
+>
+  <form>
+    <div
+      class="search-box__container"
+      role="search"
+    >
+      <label
+        class="search-box__label"
+        for="search"
+      >
+        Search
+      </label>
+      <input
+        class="search-box__input"
+        id="search"
+        placeholder=""
+        type="text"
+      />
+      <input
+        class="search-box__submit-button button"
+        type="submit"
+        value="Search"
+      />
+      <input
+        class="search-box__reset-button button"
+        type="reset"
+        value="Reset"
+      />
+    </div>
+  </form>
+</div>
+`;
