@@ -1,3 +1,11 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/julon/pianow/compare/v1.0.0...v1.0.1) (2018-02-09)
+
+
+### Bug Fixes
+
+* move inject variable ([636857a](https://github.com/julon/pianow/commit/636857a))
+
 <a name="1.0.0"></a>
 # 1.0.0 (2018-02-09)
 
