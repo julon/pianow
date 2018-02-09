@@ -62,7 +62,7 @@ typings/
 
 # Generated code
 dist/
-docs/
+docs/dist
 
 ### VisualStudioCode ###
 .vscode/*
