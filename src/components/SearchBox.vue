@@ -17,7 +17,7 @@
 <script>
 export default {
   name: "SearchBox",
-  inject: ["_client", "_helper", "_index"],
+  inject: ["_helper", "_index"],
   props: {
     value: {
       type: String
@@ -25,9 +25,6 @@ export default {
     placeholder: {
       type: String,
       default: ""
-    },
-    options: {
-      type: Object
     },
     searchLabel: {
       type: String,

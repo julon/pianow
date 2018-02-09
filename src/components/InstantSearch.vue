@@ -1,6 +1,7 @@
 <template lang="pug">
   .instant-search
     slot
+      h1 You need to put a search-index element here :)
 </template>
 
 <script>
@@ -24,7 +25,7 @@ export default {
   },
   provide() {
     return {
-      _client: algoliasearch(this.appId, this.apiKey, this.options)
+      _client: algoliasearch(this.appId, this.apiKey, Object.assign({}, this.options))
     };
   }
 };

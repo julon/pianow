@@ -38,14 +38,25 @@ export default {
     };
   },
   created() {
-    this.localHelper = this._helper.derive(searchParams => {
-      return searchParams.setIndex(this.index);
-    });
+    this.localHelper = this._helper.derive(this.mergeOptions);
     this.localHelper.on("result", content => {
       this.hits = content.hits;
     });
   },
   methods: {
+    mergeOptions(searchParams) {
+      searchParams.index = this.index;
+
+      // add options
+      if (this.options) {
+        const keys = Object.keys(this.options)
+        keys.forEach((key) => {
+          searchParams[key] = this.options[key];
+        })
+      }
+
+      return searchParams;
+    },
     selectHit(hit) {
       // customize search results item click behavior
       this.$emit("hit:selected", hit);
@@ -53,4 +64,3 @@ export default {
   }
 };
 </script>
-

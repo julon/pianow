@@ -1,6 +1,7 @@
 <template lang="pug">
   .search-index
     slot
+      h1 You can now put a search-results or/and a search-box
 </template>
 
 <script>
@@ -21,7 +22,7 @@ export default {
   },
   data() {
     return {
-      localHelper: algoliasearchHelper(this._client, this.name, this.options)
+      localHelper: algoliasearchHelper(this._client, this.name, Object.assign({}, this.options))
     };
   },
   mounted() {
