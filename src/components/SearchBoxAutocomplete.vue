@@ -43,7 +43,11 @@ export default {
       hasInputFocus: false,
       hasAutocompleteFocus: false,
       // provide a separate helper for independant triggering of children derived helpers
-      localHelper: algoliasearchHelper(this._client, this._index, Object.assign({}, this.options)),
+      localHelper: algoliasearchHelper(
+        this._client,
+        this._index,
+        Object.assign({}, this.options)
+      ),
       hits: []
     };
   },
@@ -134,5 +138,4 @@ export default {
       _helper: this.localHelper
     };
   }
-};
-</script>
+};</script>

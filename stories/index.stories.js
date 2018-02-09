@@ -1,11 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  boolean,
-  number,
-  object
-} from "@storybook/addon-knobs/vue";
+import { withKnobs, text, object } from "@storybook/addon-knobs/vue";
 
 const appId = "300GW1X3LE";
 const apiKey = "96edf734961a8ab3ce014ce65b9d01cc";

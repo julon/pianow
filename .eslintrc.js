@@ -7,9 +7,8 @@ module.exports = {
     ecmaVersion: 2017,
     sourceType: 'module'
   },
-  plugins: ['html', 'vue'],
+  plugins: ['html'],
   extends: [
-    'eslint:recommended',
     'plugin:prettier/recommended',
     'plugin:vue/recommended',
     'plugin:import/errors',

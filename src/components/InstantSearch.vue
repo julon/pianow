@@ -25,8 +25,11 @@ export default {
   },
   provide() {
     return {
-      _client: algoliasearch(this.appId, this.apiKey, Object.assign({}, this.options))
+      _client: algoliasearch(
+        this.appId,
+        this.apiKey,
+        Object.assign({}, this.options)
+      )
     };
   }
-};
-</script>
+};</script>

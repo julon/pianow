@@ -11,18 +11,8 @@ function createVm(
   resetButtonLabel = undefined
 ) {
   return new Vue({
-    template: `
-    <search-box 
-      v-model="value"
-      :index="index"
-      :placeholder="placeholder"
-      :search-label="searchLabel"
-      :search-button-label="searchButtonLabel"
-      :reset-button-label="resetButtonLabel"
-      />`,
-    provide: {
-      _helper: helper,
-      _index: "parentIndex"
+    components: {
+      SearchBox
     },
     data() {
       return {
@@ -34,14 +24,23 @@ function createVm(
         resetButtonLabel
       };
     },
-    components: {
-      SearchBox
-    }
+    provide: {
+      _helper: helper,
+      _index: "parentIndex"
+    },
+    template: `
+    <search-box 
+      v-model="value"
+      :index="index"
+      :placeholder="placeholder"
+      :search-label="searchLabel"
+      :search-button-label="searchButtonLabel"
+      :reset-button-label="resetButtonLabel"
+      />`
   }).$mount();
 }
 
 describe("SearchBox.vue", () => {
-  let vm;
   const search = jest.fn();
   const helper = {
     setQuery: jest.fn(() => ({
@@ -56,27 +55,25 @@ describe("SearchBox.vue", () => {
 
   it("should call parent helper setQuery and search when submitting the form", () => {
     const vm = createVm(helper, "testIndex", "test");
-    const child = vm.$children[0]
-    child.submit()
+    const child = vm.$children[0];
+    child.submit();
     expect(helper.setQuery).toHaveBeenCalledTimes(1);
     expect(helper.setQuery).toBeCalledWith("test");
-  })
+  });
 
-  it ("should call parent helper setQuery and search on value changes", (next) => {
+  it("should call parent helper setQuery and search on value changes", next => {
     const vm = createVm(helper, "testIndex");
-    vm.value = "test"
+    vm.value = "test";
     vm.$nextTick(() => {
-      expect(helper.setQuery).toHaveBeenCalledTimes(1)
+      expect(helper.setQuery).toHaveBeenCalledTimes(1);
       expect(helper.setQuery).toBeCalledWith("test");
-      next()
-    })
-  })
+      next();
+    });
+  });
 
   it("should show correct content with default value", () => {
     const vm = createVm(helper, "testIndex");
-    expect(vm.$el.querySelector(".search-box__input").placeholder).toEqual(
-      ""
-    );
+    expect(vm.$el.querySelector(".search-box__input").placeholder).toEqual("");
     expect(vm.$el.querySelector(".search-box__label").textContent).toEqual(
       "Search"
     );
@@ -89,7 +86,15 @@ describe("SearchBox.vue", () => {
   });
 
   it("should show correct content with custom value", () => {
-    const vm = createVm(helper, "testIndex", "", "custom placeholder", "Custom search 1", "Custom search 2", "Custom reset");
+    const vm = createVm(
+      helper,
+      "testIndex",
+      "",
+      "custom placeholder",
+      "Custom search 1",
+      "Custom search 2",
+      "Custom reset"
+    );
     expect(vm.$el.querySelector(".search-box__input").placeholder).toEqual(
       "custom placeholder"
     );

@@ -22,7 +22,11 @@ export default {
   },
   data() {
     return {
-      localHelper: algoliasearchHelper(this._client, this.name, Object.assign({}, this.options))
+      localHelper: algoliasearchHelper(
+        this._client,
+        this.name,
+        Object.assign({}, this.options)
+      )
     };
   },
   mounted() {
@@ -35,5 +39,4 @@ export default {
       _helper: this.localHelper
     };
   }
-};
-</script>
+};</script>

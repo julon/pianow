@@ -49,10 +49,10 @@ export default {
 
       // add options
       if (this.options) {
-        const keys = Object.keys(this.options)
-        keys.forEach((key) => {
+        const keys = Object.keys(this.options);
+        keys.forEach(key => {
           searchParams[key] = this.options[key];
-        })
+        });
       }
 
       return searchParams;
@@ -62,5 +62,4 @@ export default {
       this.$emit("hit:selected", hit);
     }
   }
-};
-</script>
+};</script>

@@ -5,11 +5,11 @@ import algoliasearchHelper from "algoliasearch-helper";
 jest.mock("algoliasearch-helper");
 algoliasearchHelper.mockImplementation(() => ({
   search: jest.fn()
-}))
+}));
 
 describe("SearchIndex.vue", () => {
   let vm;
-  const client = "client"
+  const client = "client";
   const options = {
     hasProperty: true
   };
@@ -32,21 +32,21 @@ describe("SearchIndex.vue", () => {
   // function for creating Vue vm
   beforeEach(() => {
     vm = new Vue({
-      template: `<search-index name="testName" :options="options"/>`,
-      provide: {
-        _client: client
+      components: {
+        SearchIndex
       },
       data() {
         return {
           options
         };
       },
-      components: {
-        SearchIndex
-      }
+      provide: {
+        _client: client
+      },
+      template: `<search-index name="testName" :options="options"/>`
     }).$mount();
   });
-  
+
   it("should create algoliasearch helper with correct component props", () => {
     expect(algoliasearchHelper).toHaveBeenCalledTimes(1);
     expect(algoliasearchHelper).toBeCalledWith(client, "testName", options);

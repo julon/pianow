@@ -3,10 +3,8 @@ import SearchResults from "../SearchResults";
 
 function createVm(helper, index, noResultsMessage, options) {
   return new Vue({
-    template: `<search-results :index="index" :no-results-message="noResultsMessage" :options="options"/>`,
-    provide: {
-      _helper: helper,
-      _index: "index"
+    components: {
+      SearchResults
     },
     data() {
       return {
@@ -15,9 +13,11 @@ function createVm(helper, index, noResultsMessage, options) {
         options
       };
     },
-    components: {
-      SearchResults
-    }
+    provide: {
+      _helper: helper,
+      _index: "index"
+    },
+    template: `<search-results :index="index" :no-results-message="noResultsMessage" :options="options"/>`
   }).$mount();
 }
 
@@ -35,12 +35,12 @@ describe("SearchResults.vue", () => {
   });
 
   it("should derive the parent helper only once on created", () => {
-    const vm = createVm(helper, "testIndex", "Custom message", {});
+    createVm(helper, "testIndex", "Custom message", {});
     expect(helper.derive).toHaveBeenCalledTimes(1);
   });
 
   it("should register the helper event on result", () => {
-    const vm = createVm(helper, "testIndex", "Custom message", {});
+    createVm(helper, "testIndex", "Custom message", {});
     expect(helperOn).toHaveBeenCalledTimes(1);
   });
 
@@ -53,9 +53,9 @@ describe("SearchResults.vue", () => {
 
   it("should show default no results message if noResultsMessage is not set", () => {
     const vm = createVm(helper, "testIndex", undefined, {});
-    expect(
-      vm.$el.querySelector(".search-results__noresults").textContent
-    ).toBe("No results found.");
+    expect(vm.$el.querySelector(".search-results__noresults").textContent).toBe(
+      "No results found."
+    );
   });
 
   it("should not show no results message if noResultsMessage is empty", () => {

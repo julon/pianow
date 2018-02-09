@@ -61,5 +61,4 @@ export default {
       this.localHelper.setQuery(newValue).search();
     }
   }
-};
-</script>
+};</script>

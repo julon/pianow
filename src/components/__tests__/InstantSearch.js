@@ -8,7 +8,7 @@ describe("InstantSearch.vue", () => {
   let vm;
   const options = {
     hasProperty: true
-  }
+  };
 
   beforeEach(() => {
     algoliasearch.mockClear();
@@ -18,7 +18,7 @@ describe("InstantSearch.vue", () => {
     expect(typeof InstantSearch.provide).toBe("function");
     const provide = InstantSearch.provide();
     expect(typeof provide).toBe("object");
-    expect(provide.hasOwnProperty('_client')).toBeTruthy();
+    expect(provide.hasOwnProperty("_client")).toBeTruthy();
   });
 
   beforeEach(() => {
