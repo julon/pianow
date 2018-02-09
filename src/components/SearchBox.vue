@@ -17,7 +17,7 @@
 <script>
 export default {
   name: "SearchBox",
-  inject: ["_helper", "_index"],
+  inject: ["_helper"],
   props: {
     value: {
       type: String

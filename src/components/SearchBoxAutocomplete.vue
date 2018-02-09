@@ -23,13 +23,12 @@
 </template>
 <script>
 import algoliasearchHelper from "algoliasearch-helper";
-import { setTimeout } from "timers";
 import SearchBox from "./SearchBox";
 
 export default {
   name: "SearchBoxAutocomplete",
   extends: SearchBox,
-  inject: ["_client"],
+  inject: ["_client", "_index"],
   props: {
     options: {
       type: Object
