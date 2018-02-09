@@ -11,6 +11,8 @@
 
 > A pianow autocomplete for VueInstantSearch :)
 
+> A simple demo with a simple design with some simple example can be found [Here](https://julon.github.io/pianow/).
+
 > Generated using [vue-cli-template-library](https://github.com/julon/vue-cli-template-library).
 
 ## Installation
