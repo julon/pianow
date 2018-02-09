@@ -119,7 +119,6 @@
       "@semantic-release/git",
       "@semantic-release/github"
     ],
-    "getLastRelease": "@semantic-release/github",
     "publish": [
       "@semantic-release/changelog",
       "@semantic-release/git",
