@@ -9,9 +9,11 @@
 ![Npm badge](https://img.shields.io/npm/v/pianow.svg)
 [![Build Status](https://travis-ci.org/julon/pianow.svg?branch=master)](https://travis-ci.org/julon/pianow)
 
-> A pianow autocomplete for VueInstantSearch :)
+> A VueJS Search Components with autocomplete and AlgoliaSearch :)
 
-> A simple demo with a simple design with some simple example can be found [Here](https://julon.github.io/pianow/).
+> A simple demo with a simple design and simple examples can be found [Here](https://julon.github.io/pianow/).
+
+> This module was not published to NPM but can be publish if needed.
 
 > Generated using [vue-cli-template-library](https://github.com/julon/vue-cli-template-library).
 
@@ -67,10 +69,10 @@ var YourComponent = Vue.extend({
 // or register the whole module with vue
 //
 var Vue = require('vue');
-var InstantSearch = require('pianow');
+var VuePianow = require('pianow');
 
 // Install this library
-Vue.use(InstantSearch);
+Vue.use(VuePianow);
 ```
 
 ### Browser
@@ -308,6 +310,7 @@ Flexibility, strong default, easy life.
 - [ ] Add stalled hints on search input
 - [ ] Add multi-facets reactive update
 - [ ] Write Documentation for custom CSS markup
+- [ ] Separate this README into several md files because it's way too long
 
 ## Changelog
 
