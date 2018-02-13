@@ -204,6 +204,7 @@ Vue.use(VuePianow);
 #### Events
 
 | EventName | EventArg | Description |
+| ---: | :--- | :--- |
 | `hit:selected` | `hit` | Trigger when a result item is clicked. You can listen to it and compute an action with the algolia `hit` object. |
 
 ### SearchBox
