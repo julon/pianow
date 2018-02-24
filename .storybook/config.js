@@ -1,6 +1,7 @@
 import { configure } from '@storybook/vue';
 import { setOptions } from '@storybook/addon-options';
 import Vue from 'vue';
+import {PoweredBy} from 'vue-instantsearch';
 
 // Import your custom components.
 import ModuleLibrary from '@/index';
@@ -23,7 +24,7 @@ setOptions({
 Vue.use(ModuleLibrary);
 
 // Install Vue plugins
-// ex: Vue.use(vuex)
+Vue.component('ais-powered-by', PoweredBy);
 
 // Load stories
 const req = require.context("../stories", true, /\.stories\.js$/);

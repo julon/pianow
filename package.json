@@ -95,12 +95,13 @@
     "semantic-release": "^13.2.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
+    "travis-deploy-once": "^4.3.4",
     "uglify-es": "^3.3.10",
     "vue": "^2.5.13",
+    "vue-instantsearch": "^1.4.0",
     "vue-jest": "^2.0.1",
     "vue-loader": "^14.1.1",
-    "vue-template-compiler": "^2.5.13",
-    "travis-deploy-once": "^4.3.4"
+    "vue-template-compiler": "^2.5.13"
   },
   "config": {
     "commitizen": {

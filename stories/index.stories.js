@@ -22,9 +22,11 @@ storiesOf("SearchBox", module)
     template: `
   <instant-search :app-id="appId" :api-key="apiKey">
     <search-index :name="defaultIndex">
+      <ais-powered-by></ais-powered-by>
       <search-box v-model="input"></search-box>
       <search-results/>
     </search-index>
+
   </instant-search>`,
     data() {
       return {
@@ -38,6 +40,7 @@ storiesOf("SearchBox", module)
   .add("with simple multi-indexes query and default index", () => ({
     template: `
     <instant-search :app-id="appId" :api-key="apiKey">
+      <ais-powered-by></ais-powered-by>
       <search-index :name="defaultIndex">
         <search-box v-model="input"></search-box>
         <search-results/>
@@ -60,6 +63,7 @@ storiesOf("SearchBoxAutocomplete", module)
   .add("with mono-index query and custom templates", () => ({
     template: `
   <instant-search :app-id="appId" :api-key="apiKey">
+    <ais-powered-by></ais-powered-by>
     <search-index :name="defaultIndex">
       <search-box-autocomplete v-model="input">
         <search-results v-on:hit:selected="inputChange">
@@ -88,6 +92,7 @@ storiesOf("SearchBoxAutocomplete", module)
   .add("with multi-indexes query and options", () => ({
     template: `
   <instant-search :app-id="appId" :api-key="apiKey">
+    <ais-powered-by></ais-powered-by>
     <search-index :name="defaultIndex">
       <search-box-autocomplete v-model="input" :options="defaultOptions">
         <div class="column">
@@ -131,6 +136,7 @@ storiesOf("SearchResults", module)
   .add("with simple index query", () => ({
     template: `
   <instant-search :app-id="appId" :api-key="apiKey">
+    <ais-powered-by></ais-powered-by>
     <search-index :name="defaultIndex">
       <search-results></search-results>
     </search-index>
@@ -146,6 +152,7 @@ storiesOf("SearchResults", module)
   .add("with multi-indexes query", () => ({
     template: `
   <instant-search :app-id="appId" :api-key="apiKey">
+    <ais-powered-by></ais-powered-by>
     <search-index :name="defaultIndex">
       <search-results></search-results>
       <search-results :index="secondIndex"></search-results>
@@ -163,6 +170,7 @@ storiesOf("SearchResults", module)
   .add("with custom header, template, footer and options", () => ({
     template: `
   <instant-search :app-id="appId" :api-key="apiKey">
+    <ais-powered-by></ais-powered-by>
     <search-index :name="defaultIndex" :options="defaultOptions">
       <search-results>
         <template slot="header" slot-scope="props">
@@ -190,6 +198,7 @@ storiesOf("SearchResults", module)
   .add("with multi-indexes and different options for each", () => ({
     template: `
   <instant-search :app-id="appId" :api-key="apiKey">
+    <ais-powered-by></ais-powered-by>
     <search-index :name="defaultIndex" :options="defaultOptions">
       <search-results></search-results>
       <search-results :options="options1"></search-results>

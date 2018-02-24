@@ -12,7 +12,7 @@ h2 {
 
 a {
   text-decoration: none;
-  color: #1a489e;
+  color: #3369E7;
 }
 
 em {
@@ -20,12 +20,14 @@ em {
 }
 
 .button {
-  background-color: #1a489e;
+  background: linear-gradient(to bottom left, #3369E7, #00AEFF);
   color: white;
-  padding: 5px 15px;
+  padding: 8px 15px;
   border-radius: 5px;
   border: none;
   margin: 0 5px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .column {
@@ -36,6 +38,7 @@ em {
 /* SearchBox */
 .search-box {
   padding: 10px;
+  padding-left: 0;
 }
 
 .search-box__label {
@@ -43,11 +46,13 @@ em {
 }
 
 .search-box__input {
-  padding: 5px 15px;
+  padding: 8px 15px;
   border: none;
   border-radius: 5px;
-  margin: 0 5px;
+  margin-right: 5px;
   background-color: #EEE;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .search-box__autocomplete {
@@ -64,9 +69,14 @@ em {
 
 .search-results__item {
   list-style: none;
+  padding: 3px;
 }
 
 .search-results__link.active {
-  background-color: #1a489e;
+  background-color: #3369E7;
   color: white;
+}
+
+.ais-powered-by {
+  margin-bottom: 10px;
 }
